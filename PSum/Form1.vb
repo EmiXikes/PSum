@@ -43,6 +43,8 @@ Public Class Form1
 
 
 
+
+
             If PowerValueS <> "" Then
 
                 exp = New Expression(PowerValueS)
