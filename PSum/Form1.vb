@@ -126,8 +126,12 @@ Public Class Form1
     End Sub
 
     Sub ReloadResult()
+
+        ''TODO Set Autocad as foremost again
+
         Lbl_Pn.Text = "Pn = " & Pn.ToString("N2")
         Lbl_Pa.Text = "Pa = " & Pa.ToString("N2")
+
     End Sub
 
     Sub ReloadUI()
