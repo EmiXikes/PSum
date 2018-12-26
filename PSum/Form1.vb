@@ -188,4 +188,8 @@ Public Class Form1
         Pa = Pa + Pwr * My.Settings.Mult5
         ReloadResult()
     End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
 End Class
