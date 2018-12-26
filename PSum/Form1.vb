@@ -31,8 +31,12 @@ Public Class Form1
         PowerList = ReadBlockAttributesFromDXFExtractFile(Export2DXF_Selected())
         ''PowerList = AttributeExtractAll(New List(Of String) From {"JAUDA"}, True)
 
-        com = er & er & esc & esc & esc
+        'com = er & er & esc & esc & esc
+        'SendCommand(com)
+
+        com = "change" & er & "p" & er & er & "p" & er & "c" & er & "green" & er & er
         SendCommand(com)
+
 
         For Each PowerItem In PowerList
 
