@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -123,6 +123,90 @@ Namespace My
             End Get
             Set
                 Me("Mult0") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col0() As String
+            Get
+                Return CType(Me("Col0"),String)
+            End Get
+            Set
+                Me("Col0") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col1() As String
+            Get
+                Return CType(Me("Col1"),String)
+            End Get
+            Set
+                Me("Col1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col2() As String
+            Get
+                Return CType(Me("Col2"),String)
+            End Get
+            Set
+                Me("Col2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col3() As String
+            Get
+                Return CType(Me("Col3"),String)
+            End Get
+            Set
+                Me("Col3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col4() As String
+            Get
+                Return CType(Me("Col4"),String)
+            End Get
+            Set
+                Me("Col4") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col5() As String
+            Get
+                Return CType(Me("Col5"),String)
+            End Get
+            Set
+                Me("Col5") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0,128,0")>  _
+        Public Property Col6() As String
+            Get
+                Return CType(Me("Col6"),String)
+            End Get
+            Set
+                Me("Col6") = value
             End Set
         End Property
     End Class

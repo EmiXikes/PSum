@@ -32,6 +32,7 @@ Partial Class Form1
         Me.Btn_Mult5 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.SuspendLayout()
         '
         'Btn_Mult0
@@ -40,7 +41,7 @@ Partial Class Form1
         Me.Btn_Mult0.Location = New System.Drawing.Point(1, 58)
         Me.Btn_Mult0.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult0.Name = "Btn_Mult0"
-        Me.Btn_Mult0.Size = New System.Drawing.Size(100, 25)
+        Me.Btn_Mult0.Size = New System.Drawing.Size(120, 25)
         Me.Btn_Mult0.TabIndex = 1
         Me.Btn_Mult0.Text = "1.0"
         Me.Btn_Mult0.UseVisualStyleBackColor = True
@@ -51,7 +52,7 @@ Partial Class Form1
         Me.Btn_Mult1.Location = New System.Drawing.Point(1, 85)
         Me.Btn_Mult1.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult1.Name = "Btn_Mult1"
-        Me.Btn_Mult1.Size = New System.Drawing.Size(100, 25)
+        Me.Btn_Mult1.Size = New System.Drawing.Size(120, 25)
         Me.Btn_Mult1.TabIndex = 2
         Me.Btn_Mult1.Text = "Button1"
         Me.Btn_Mult1.UseVisualStyleBackColor = True
@@ -62,7 +63,7 @@ Partial Class Form1
         Me.Btn_Mult2.Location = New System.Drawing.Point(1, 112)
         Me.Btn_Mult2.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult2.Name = "Btn_Mult2"
-        Me.Btn_Mult2.Size = New System.Drawing.Size(100, 25)
+        Me.Btn_Mult2.Size = New System.Drawing.Size(120, 25)
         Me.Btn_Mult2.TabIndex = 3
         Me.Btn_Mult2.Text = "Button3"
         Me.Btn_Mult2.UseVisualStyleBackColor = True
@@ -95,7 +96,7 @@ Partial Class Form1
         Me.Btn_Mult3.Location = New System.Drawing.Point(1, 139)
         Me.Btn_Mult3.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult3.Name = "Btn_Mult3"
-        Me.Btn_Mult3.Size = New System.Drawing.Size(100, 25)
+        Me.Btn_Mult3.Size = New System.Drawing.Size(120, 25)
         Me.Btn_Mult3.TabIndex = 6
         Me.Btn_Mult3.Text = "Button4"
         Me.Btn_Mult3.UseVisualStyleBackColor = True
@@ -106,7 +107,7 @@ Partial Class Form1
         Me.Btn_Mult4.Location = New System.Drawing.Point(1, 166)
         Me.Btn_Mult4.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult4.Name = "Btn_Mult4"
-        Me.Btn_Mult4.Size = New System.Drawing.Size(100, 25)
+        Me.Btn_Mult4.Size = New System.Drawing.Size(120, 25)
         Me.Btn_Mult4.TabIndex = 7
         Me.Btn_Mult4.Text = "Button5"
         Me.Btn_Mult4.UseVisualStyleBackColor = True
@@ -117,7 +118,7 @@ Partial Class Form1
         Me.Btn_Mult5.Location = New System.Drawing.Point(1, 193)
         Me.Btn_Mult5.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult5.Name = "Btn_Mult5"
-        Me.Btn_Mult5.Size = New System.Drawing.Size(100, 25)
+        Me.Btn_Mult5.Size = New System.Drawing.Size(120, 25)
         Me.Btn_Mult5.TabIndex = 8
         Me.Btn_Mult5.Text = "Button6"
         Me.Btn_Mult5.UseVisualStyleBackColor = True
@@ -125,7 +126,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(81, 38)
+        Me.Button1.Location = New System.Drawing.Point(101, 38)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(20, 20)
         Me.Button1.TabIndex = 9
@@ -141,12 +142,13 @@ Partial Class Form1
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "S"
         Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(102, 219)
+        Me.ClientSize = New System.Drawing.Size(122, 219)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Btn_Mult5)
@@ -160,7 +162,7 @@ Partial Class Form1
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "P SUM"
+        Me.Text = "PSUM 1.00"
         Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -177,4 +179,5 @@ Partial Class Form1
     Friend WithEvents Btn_Mult5 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents ColorDialog1 As ColorDialog
 End Class

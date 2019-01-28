@@ -48,7 +48,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DEL_acadltlib_EM">
+    <Reference Include="DEL_acadltlib_EM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DEL_acadltlib_EM\DEL_acadltlib_EM\bin\Debug\DEL_acadltlib_EM.dll</HintPath>
     </Reference>
     <Reference Include="NCalc">

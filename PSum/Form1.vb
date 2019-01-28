@@ -3,6 +3,7 @@ Imports DEL_acadltlib_EM.CAD_attextract
 Imports DEL_acadltlib_EM.CAD_commands
 Imports DEL_acadltlib_EM.DDE
 Imports DEL_acadltlib_EM.DXF
+Imports DEL_acadltlib_EM.AutoCADLTinfo
 
 Public Class Form1
 
@@ -14,7 +15,39 @@ Public Class Form1
     Dim Pn As Double
     Dim Pa As Double
 
+    Function SetColorForExtract()
+        Dim er As String = Chr(10)
+        Dim esc As String = Chr(27)
+        Dim com As String
+        Dim CadColor As String
+
+        Select Case CommonStuff.ActiveMultBtn
+            Case 0
+                CadColor = My.Settings.Col0
+            Case 1
+                CadColor = My.Settings.Col1
+            Case 2
+                CadColor = My.Settings.Col2
+            Case 3
+                CadColor = My.Settings.Col3
+            Case 4
+                CadColor = My.Settings.Col4
+            Case 5
+                CadColor = My.Settings.Col5
+        End Select
+
+        initDDE()
+
+        com = "change" & er & "p" & er & er & "p" & er & "c" & er & "t" & er & CadColor & er & er
+        SendCommand(com)
+
+        CloseDDE()
+
+    End Function
+
+
     Function SelectedPower() As Double
+
         Dim er As String = Chr(10)
         Dim esc As String = Chr(27)
         Dim com As String
@@ -25,16 +58,31 @@ Public Class Form1
 
         initDDE()
 
-        com = "m" & er & "0" & er & "0" & er
-        SendCommand(com)
+        Try
+            PowerList = ReadBlockAttributesFromDXFExtractFile(Export2DXF_Selected())
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return 0
+        End Try
 
-        PowerList = ReadBlockAttributesFromDXFExtractFile(Export2DXF_Selected())
-        ''PowerList = AttributeExtractAll(New List(Of String) From {"JAUDA"}, True)
+        Dim CadColor As String
 
-        'com = er & er & esc & esc & esc
-        'SendCommand(com)
+        Select Case CommonStuff.ActiveMultBtn
+            Case 0
+                CadColor = My.Settings.Col0
+            Case 1
+                CadColor = My.Settings.Col1
+            Case 2
+                CadColor = My.Settings.Col2
+            Case 3
+                CadColor = My.Settings.Col3
+            Case 4
+                CadColor = My.Settings.Col4
+            Case 5
+                CadColor = My.Settings.Col5
+        End Select
 
-        com = "change" & er & "p" & er & er & "p" & er & "c" & er & "green" & er & er
+        com = "change" & er & "p" & er & er & "p" & er & "c" & er & "t" & er & CadColor & er & er
         SendCommand(com)
 
 
@@ -61,10 +109,18 @@ Public Class Form1
 
         Next
 
+        CloseDDE()
+
         Return PowerValueD
 
     End Function
     Dim ButtonH As Integer = 27
+
+    Function ColorFromRgbString(stringColorFormat) As Color
+        With stringColorFormat
+            Return Color.FromArgb(CInt(.Split(",")(0)), CInt(.Split(",")(1)), CInt(.Split(",")(2)))
+        End With
+    End Function
 
     Private Sub Button2_MouseDown(sender As Object, e As MouseEventArgs) Handles Btn_Mult0.MouseDown
         If e.Button = MouseButtons.Right Then
@@ -123,6 +179,10 @@ Public Class Form1
 
         ReloadUI()
         ReloadResult()
+        initDDE()
+        EnableLog()
+        CloseDDE()
+
     End Sub
 
     Sub ReloadResult()
@@ -141,6 +201,13 @@ Public Class Form1
         Btn_Mult3.Text = Chr(215) & My.Settings.Mult3.ToString("N2")
         Btn_Mult4.Text = Chr(215) & My.Settings.Mult4.ToString("N2")
         Btn_Mult5.Text = Chr(215) & My.Settings.Mult5.ToString("N2")
+
+        Btn_Mult0.ForeColor = ColorFromRgbString(My.Settings.Col0)
+        Btn_Mult1.ForeColor = ColorFromRgbString(My.Settings.Col1)
+        Btn_Mult2.ForeColor = ColorFromRgbString(My.Settings.Col2)
+        Btn_Mult3.ForeColor = ColorFromRgbString(My.Settings.Col3)
+        Btn_Mult4.ForeColor = ColorFromRgbString(My.Settings.Col4)
+        Btn_Mult5.ForeColor = ColorFromRgbString(My.Settings.Col5)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -149,12 +216,14 @@ Public Class Form1
         ReloadResult()
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_Mult0.Click
+        CommonStuff.ActiveMultBtn = 0
         Dim Pwr As Double = SelectedPower()
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult0
         ReloadResult()
     End Sub
     Private Sub Btn_Mult1_Click(sender As Object, e As EventArgs) Handles Btn_Mult1.Click
+        CommonStuff.ActiveMultBtn = 1
         Dim Pwr As Double = SelectedPower()
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult1
@@ -162,6 +231,7 @@ Public Class Form1
     End Sub
 
     Private Sub Btn_Mult2_Click(sender As Object, e As EventArgs) Handles Btn_Mult2.Click
+        CommonStuff.ActiveMultBtn = 2
         Dim Pwr As Double = SelectedPower()
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult2
@@ -169,6 +239,7 @@ Public Class Form1
     End Sub
 
     Private Sub Btn_Mult3_Click(sender As Object, e As EventArgs) Handles Btn_Mult3.Click
+        CommonStuff.ActiveMultBtn = 3
         Dim Pwr As Double = SelectedPower()
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult3
@@ -176,6 +247,7 @@ Public Class Form1
     End Sub
 
     Private Sub Btn_Mult4_Click(sender As Object, e As EventArgs) Handles Btn_Mult4.Click
+        CommonStuff.ActiveMultBtn = 4
         Dim Pwr As Double = SelectedPower()
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult4
@@ -183,6 +255,7 @@ Public Class Form1
     End Sub
 
     Private Sub Btn_Mult5_Click(sender As Object, e As EventArgs) Handles Btn_Mult5.Click
+        CommonStuff.ActiveMultBtn = 5
         Dim Pwr As Double = SelectedPower()
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult5
@@ -190,6 +263,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        ColorDialog1.ShowDialog()
+    End Sub
 
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        CloseDDE()
     End Sub
 End Class
