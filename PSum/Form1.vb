@@ -15,11 +15,12 @@ Public Class Form1
     Dim Pa As Double
 
     Public Sub OverridePnResult(ByVal NewRes)
-        Lbl_Pn.Text = "Pn=" & NewRes & "kW"
+        Lbl_Pn.Text = "Pn=" & NewRes & " kW"
     End Sub
 
-    Public Sub OverridePaResult(ByVal NewRes)
-        Lbl_Pn.Text = "Pa=" & NewRes & "kW"
+    Public Sub OverridePaResult(ByVal NewRes As String, ByVal AdvSumString As String)
+        Lbl_Pa.Text = "Pa = " & NewRes & " kW"
+        TxtBxPa.Text = AdvSumString
     End Sub
 
     Dim PnTxt As String
@@ -92,9 +93,10 @@ Public Class Form1
                 CadColor = My.Settings.Col5
         End Select
 
-        com = "change" & er & "p" & er & er & "p" & er & "c" & er & "t" & er & CadColor & er & er
-        SendCommand(com)
-
+        If ChckBxCol.Checked = True Then
+            com = "change" & er & "p" & er & er & "p" & er & "c" & er & "t" & er & CadColor & er & er
+            SendCommand(com)
+        End If
 
         For Each PowerItem In PowerList
 
@@ -200,8 +202,8 @@ Public Class Form1
 
         ''TODO Set Autocad as foremost again
 
-        Lbl_Pn.Text = "Pn = " & Pn.ToString("N2")
-        Lbl_Pa.Text = "Pa = " & Pa.ToString("N2")
+        Lbl_Pn.Text = "Pn = " & Pn.ToString("N2") & " kW"
+        Lbl_Pa.Text = "Pa = " & Pa.ToString("N2") & " kW"
 
         TxtBxPn.Text = "Pn=" & PnTxt & "=" & Pn.ToString("N2") & "kW"
         TxtBxPa.Text = "Pa=" & PaTxt & "=" & Pa.ToString("N2") & "kW"
@@ -209,6 +211,9 @@ Public Class Form1
     End Sub
 
     Sub ReloadUI()
+
+        ChckBxCol.Checked = My.Settings.isColorCAD
+
         Btn_Mult0.Text = Chr(215) & My.Settings.Mult0.ToString("N2")
         Btn_Mult1.Text = Chr(215) & My.Settings.Mult1.ToString("N2")
         Btn_Mult2.Text = Chr(215) & My.Settings.Mult2.ToString("N2")
@@ -375,7 +380,7 @@ Public Class Form1
     Private Sub TxtBxPa_MouseClick(sender As Object, e As MouseEventArgs) Handles TxtBxPa.MouseClick
 
         Dim advSum As New AdvancedSumResultWindow
-        advSum.Left = Me.Left - 200
+        advSum.Left = Me.Left
         advSum.Top = Me.Top + 90
         advSum.TextBox1.Text = TxtBxPa.Text
         advSum.Prefix = "Pa="
@@ -389,5 +394,31 @@ Public Class Form1
 
     Private Sub Lbl_Pa_Click(sender As Object, e As EventArgs) Handles Lbl_Pa.Click
 
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Cop1.Visible = True
+        TxtBxPn.SelectAll()
+        TxtBxPn.Copy()
+        TxtBxPn.DeselectAll()
+    End Sub
+
+    Private Sub Button3_MouseLeave(sender As Object, e As EventArgs) Handles Button3.MouseLeave
+        Cop1.Visible = False
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Cop2.Visible = True
+        TxtBxPa.SelectAll()
+        TxtBxPa.Copy()
+        TxtBxPa.DeselectAll()
+    End Sub
+
+    Private Sub Button4_MouseLeave(sender As Object, e As EventArgs) Handles Button4.MouseLeave
+        Cop2.Visible = False
+    End Sub
+
+    Private Sub ChckBxCol_CheckedChanged(sender As Object, e As EventArgs) Handles ChckBxCol.CheckedChanged
+        My.Settings.isColorCAD = sender.checked
     End Sub
 End Class

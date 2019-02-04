@@ -47,6 +47,7 @@ Public Class AdvancedSumResultWindow
 
         Dim exp As Expression
         Dim CorrectPart As Integer
+        Dim AdvSumString As String
 
         For i = 0 To AdvSum.Split("=").Length
             Try
@@ -59,12 +60,14 @@ Public Class AdvancedSumResultWindow
             End Try
         Next
 
+        AdvSumString = Prefix & OrigStr.Split("=")(CorrectPart) & "=" & tempRes & "kW"
+
         If Prefix = "Pn=" Then
-            Form1.OverridePnResult(tempRes)
+            Form1.OverridePnResult(tempRes.ToString("N2"))
         Else
-            Form1.OverridePaResult(tempRes)
+            Form1.OverridePaResult(tempRes.ToString("N2"), AdvSumString)
         End If
 
-        TextBox1.Text = Prefix & OrigStr.Split("=")(CorrectPart) & "=" & tempRes & "kW"
+        TextBox1.Text = AdvSumString
     End Sub
 End Class

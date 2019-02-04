@@ -40,6 +40,8 @@ Partial Class Form1
         Me.Cop1 = New System.Windows.Forms.Label()
         Me.Cop2 = New System.Windows.Forms.Label()
         Me.ChckBxCol = New System.Windows.Forms.CheckBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Btn_Mult0
@@ -133,9 +135,9 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(104, 89)
+        Me.Button1.Location = New System.Drawing.Point(104, 85)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(20, 20)
+        Me.Button1.Size = New System.Drawing.Size(20, 22)
         Me.Button1.TabIndex = 9
         Me.Button1.Text = "R"
         Me.Button1.UseVisualStyleBackColor = True
@@ -143,7 +145,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(62, 89)
+        Me.Button2.Location = New System.Drawing.Point(62, 91)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(20, 20)
         Me.Button2.TabIndex = 10
@@ -153,18 +155,18 @@ Partial Class Form1
         '
         'TxtBxPn
         '
-        Me.TxtBxPn.Location = New System.Drawing.Point(4, 39)
+        Me.TxtBxPn.Location = New System.Drawing.Point(4, 41)
         Me.TxtBxPn.Name = "TxtBxPn"
         Me.TxtBxPn.ReadOnly = True
-        Me.TxtBxPn.Size = New System.Drawing.Size(120, 20)
+        Me.TxtBxPn.Size = New System.Drawing.Size(98, 20)
         Me.TxtBxPn.TabIndex = 11
         '
         'TxtBxPa
         '
-        Me.TxtBxPa.Location = New System.Drawing.Point(4, 62)
+        Me.TxtBxPa.Location = New System.Drawing.Point(4, 64)
         Me.TxtBxPa.Name = "TxtBxPa"
         Me.TxtBxPa.ReadOnly = True
-        Me.TxtBxPa.Size = New System.Drawing.Size(120, 20)
+        Me.TxtBxPa.Size = New System.Drawing.Size(98, 20)
         Me.TxtBxPa.TabIndex = 12
         '
         'ToolTip1
@@ -176,9 +178,10 @@ Partial Class Form1
         'Cop1
         '
         Me.Cop1.AutoSize = True
+        Me.Cop1.BackColor = System.Drawing.Color.Transparent
         Me.Cop1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
         Me.Cop1.ForeColor = System.Drawing.Color.Red
-        Me.Cop1.Location = New System.Drawing.Point(61, 59)
+        Me.Cop1.Location = New System.Drawing.Point(12, 48)
         Me.Cop1.Name = "Cop1"
         Me.Cop1.Size = New System.Drawing.Size(65, 13)
         Me.Cop1.TabIndex = 13
@@ -188,9 +191,10 @@ Partial Class Form1
         'Cop2
         '
         Me.Cop2.AutoSize = True
+        Me.Cop2.BackColor = System.Drawing.Color.Transparent
         Me.Cop2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
         Me.Cop2.ForeColor = System.Drawing.Color.Red
-        Me.Cop2.Location = New System.Drawing.Point(60, 83)
+        Me.Cop2.Location = New System.Drawing.Point(11, 72)
         Me.Cop2.Name = "Cop2"
         Me.Cop2.Size = New System.Drawing.Size(65, 13)
         Me.Cop2.TabIndex = 14
@@ -200,18 +204,40 @@ Partial Class Form1
         'ChckBxCol
         '
         Me.ChckBxCol.AutoSize = True
-        Me.ChckBxCol.Location = New System.Drawing.Point(5, 93)
+        Me.ChckBxCol.Location = New System.Drawing.Point(5, 90)
         Me.ChckBxCol.Name = "ChckBxCol"
-        Me.ChckBxCol.Size = New System.Drawing.Size(33, 17)
+        Me.ChckBxCol.Size = New System.Drawing.Size(81, 17)
         Me.ChckBxCol.TabIndex = 15
-        Me.ChckBxCol.Text = "C"
+        Me.ChckBxCol.Text = "Krāsot CAD"
         Me.ChckBxCol.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(104, 40)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(20, 22)
+        Me.Button3.TabIndex = 16
+        Me.Button3.Text = "C"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(104, 63)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(20, 22)
+        Me.Button4.TabIndex = 17
+        Me.Button4.Text = "C"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(127, 273)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.ChckBxCol)
         Me.Controls.Add(Me.Cop2)
         Me.Controls.Add(Me.Cop1)
@@ -228,9 +254,11 @@ Partial Class Form1
         Me.Controls.Add(Me.Btn_Mult1)
         Me.Controls.Add(Me.Btn_Mult0)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PSUM 1.00"
+        Me.Text = "PSUM 1.03"
         Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -254,4 +282,6 @@ Partial Class Form1
     Friend WithEvents Cop1 As Label
     Friend WithEvents Cop2 As Label
     Friend WithEvents ChckBxCol As CheckBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class
