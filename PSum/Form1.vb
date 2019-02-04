@@ -6,7 +6,6 @@ Imports DEL_acadltlib_EM.DXF
 Imports DEL_acadltlib_EM.AutoCADLTinfo
 
 Public Class Form1
-
     Public Class CommonStuff
         Public Shared MultFormLocation As Point
         Public Shared ActiveMultBtn As Integer
@@ -14,6 +13,17 @@ Public Class Form1
 
     Dim Pn As Double
     Dim Pa As Double
+
+    Public Sub OverridePnResult(ByVal NewRes)
+        Lbl_Pn.Text = "Pn=" & NewRes & "kW"
+    End Sub
+
+    Public Sub OverridePaResult(ByVal NewRes)
+        Lbl_Pn.Text = "Pa=" & NewRes & "kW"
+    End Sub
+
+    Dim PnTxt As String
+    Dim PaTxt As String
 
     Function SetColorForExtract()
         Dim er As String = Chr(10)
@@ -168,12 +178,13 @@ Public Class Form1
         Dim mEdit As New MultEditForm
         CommonStuff.MultFormLocation = New Point
         CommonStuff.MultFormLocation.X = Location.X + 10
-        CommonStuff.MultFormLocation.Y = Location.Y + 90 + (ButtonH * CommonStuff.ActiveMultBtn)
+        CommonStuff.MultFormLocation.Y = Location.Y + 102 + (Me.Height - Me.ClientSize.Height) + (ButtonH * CommonStuff.ActiveMultBtn)
         mEdit.ShowDialog()
         ReloadUI()
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Pn = 0
         Pa = 0
 
@@ -191,6 +202,9 @@ Public Class Form1
 
         Lbl_Pn.Text = "Pn = " & Pn.ToString("N2")
         Lbl_Pa.Text = "Pa = " & Pa.ToString("N2")
+
+        TxtBxPn.Text = "Pn=" & PnTxt & "=" & Pn.ToString("N2") & "kW"
+        TxtBxPa.Text = "Pa=" & PaTxt & "=" & Pa.ToString("N2") & "kW"
 
     End Sub
 
@@ -215,50 +229,97 @@ Public Class Form1
         Pa = 0
         ReloadResult()
     End Sub
+
+    Dim pls As String = "+"
+
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_Mult0.Click
         CommonStuff.ActiveMultBtn = 0
         Dim Pwr As Double = SelectedPower()
+        If Pwr = 0 Then Exit Sub
+        Dim Mult As Double = My.Settings.Mult0
         Pn = Pn + Pwr
-        Pa = Pa + Pwr * My.Settings.Mult0
+        Pa = Pa + Pwr * Mult
+
+        If PnTxt = "" Then pls = "" Else pls = "+"
+        PnTxt = PnTxt & pls & Pwr
+        PaTxt = PaTxt & pls & "[" & Pwr & "]x" & Mult
+
         ReloadResult()
+
     End Sub
     Private Sub Btn_Mult1_Click(sender As Object, e As EventArgs) Handles Btn_Mult1.Click
         CommonStuff.ActiveMultBtn = 1
         Dim Pwr As Double = SelectedPower()
+        If Pwr = 0 Then Exit Sub
+        Dim Mult As Double = My.Settings.Mult1
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult1
+
+        If PnTxt = "" Then pls = "" Else pls = "+"
+        PnTxt = PnTxt & pls & Pwr
+        PaTxt = PaTxt & pls & "[" & Pwr & "]x" & Mult
+
         ReloadResult()
     End Sub
 
     Private Sub Btn_Mult2_Click(sender As Object, e As EventArgs) Handles Btn_Mult2.Click
         CommonStuff.ActiveMultBtn = 2
         Dim Pwr As Double = SelectedPower()
+        If Pwr = 0 Then Exit Sub
+        Dim Mult As Double = My.Settings.Mult2
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult2
+
+        If PnTxt = "" Then pls = "" Else pls = "+"
+        PnTxt = PnTxt & pls & Pwr
+        PaTxt = PaTxt & pls & "[" & Pwr & "]x" & Mult
+
         ReloadResult()
     End Sub
 
     Private Sub Btn_Mult3_Click(sender As Object, e As EventArgs) Handles Btn_Mult3.Click
         CommonStuff.ActiveMultBtn = 3
         Dim Pwr As Double = SelectedPower()
+        If Pwr = 0 Then Exit Sub
+        Dim Mult As Double = My.Settings.Mult3
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult3
+
+        If PnTxt = "" Then pls = "" Else pls = "+"
+        PnTxt = PnTxt & pls & Pwr
+        PaTxt = PaTxt & pls & "[" & Pwr & "]x" & Mult
+
         ReloadResult()
     End Sub
 
     Private Sub Btn_Mult4_Click(sender As Object, e As EventArgs) Handles Btn_Mult4.Click
         CommonStuff.ActiveMultBtn = 4
         Dim Pwr As Double = SelectedPower()
+        If Pwr = 0 Then Exit Sub
+        Dim Mult As Double = My.Settings.Mult4
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult4
+
+        If PnTxt = "" Then pls = "" Else pls = "+"
+        PnTxt = PnTxt & pls & Pwr
+        PaTxt = PaTxt & pls & "[" & Pwr & "]x" & Mult
+
         ReloadResult()
     End Sub
 
     Private Sub Btn_Mult5_Click(sender As Object, e As EventArgs) Handles Btn_Mult5.Click
         CommonStuff.ActiveMultBtn = 5
         Dim Pwr As Double = SelectedPower()
+        If Pwr = 0 Then Exit Sub
+        Dim Mult As Double = My.Settings.Mult5
         Pn = Pn + Pwr
         Pa = Pa + Pwr * My.Settings.Mult5
+
+        If PnTxt = "" Then pls = "" Else pls = "+"
+        PnTxt = PnTxt & pls & Pwr
+        PaTxt = PaTxt & pls & "[" & Pwr & "]x" & Mult
+
         ReloadResult()
     End Sub
 
@@ -268,5 +329,65 @@ Public Class Form1
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         CloseDDE()
+    End Sub
+
+    Private Sub TxtBxPn_MouseDown(sender As Object, e As MouseEventArgs) Handles TxtBxPn.MouseDown
+
+        'Cop1.Visible = True
+        'TxtBxPn.SelectAll()
+        'TxtBxPn.Copy()
+        '' TxtBxPn.DeselectAll()
+
+    End Sub
+
+    Private Sub TxtBxPa_MouseDown(sender As Object, e As MouseEventArgs) Handles TxtBxPa.MouseDown
+
+    End Sub
+
+    Private Sub TxtBxPn_TextChanged(sender As Object, e As EventArgs) Handles TxtBxPn.TextChanged
+
+
+
+    End Sub
+
+    Private Sub TxtBxPn_MouseLeave(sender As Object, e As EventArgs) Handles TxtBxPn.MouseLeave
+        ''Cop1.Visible = False
+    End Sub
+
+    Private Sub TxtBxPa_MouseLeave(sender As Object, e As EventArgs) Handles TxtBxPa.MouseLeave
+        ''Cop2.Visible = False
+    End Sub
+
+    Private Sub TxtBxPn_MouseClick(sender As Object, e As MouseEventArgs) Handles TxtBxPn.MouseClick
+        'Dim advSum As New AdvancedSumResultWindow
+        'advSum.Left = Me.Left - 200
+        'advSum.Top = Me.Top + 70
+        'advSum.TextBox1.Text = TxtBxPa.Text
+        'advSum.Prefix = "Pn="
+        'advSum.Show()
+
+        'Cop1.Visible = True
+        'TxtBxPn.SelectAll()
+        'TxtBxPn.Copy()
+        'TxtBxPn.DeselectAll()
+    End Sub
+
+    Private Sub TxtBxPa_MouseClick(sender As Object, e As MouseEventArgs) Handles TxtBxPa.MouseClick
+
+        Dim advSum As New AdvancedSumResultWindow
+        advSum.Left = Me.Left - 200
+        advSum.Top = Me.Top + 90
+        advSum.TextBox1.Text = TxtBxPa.Text
+        advSum.Prefix = "Pa="
+        advSum.Show()
+
+        'Cop2.Visible = True
+        'TxtBxPa.SelectAll()
+        'TxtBxPa.Copy()
+        'TxtBxPa.DeselectAll()
+    End Sub
+
+    Private Sub Lbl_Pa_Click(sender As Object, e As EventArgs) Handles Lbl_Pa.Click
+
     End Sub
 End Class

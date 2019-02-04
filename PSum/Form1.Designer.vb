@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Btn_Mult0 = New System.Windows.Forms.Button()
         Me.Btn_Mult1 = New System.Windows.Forms.Button()
         Me.Btn_Mult2 = New System.Windows.Forms.Button()
@@ -33,12 +34,18 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.TxtBxPn = New System.Windows.Forms.TextBox()
+        Me.TxtBxPa = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Cop1 = New System.Windows.Forms.Label()
+        Me.Cop2 = New System.Windows.Forms.Label()
+        Me.ChckBxCol = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Btn_Mult0
         '
         Me.Btn_Mult0.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
-        Me.Btn_Mult0.Location = New System.Drawing.Point(1, 58)
+        Me.Btn_Mult0.Location = New System.Drawing.Point(4, 109)
         Me.Btn_Mult0.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult0.Name = "Btn_Mult0"
         Me.Btn_Mult0.Size = New System.Drawing.Size(120, 25)
@@ -49,7 +56,7 @@ Partial Class Form1
         'Btn_Mult1
         '
         Me.Btn_Mult1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
-        Me.Btn_Mult1.Location = New System.Drawing.Point(1, 85)
+        Me.Btn_Mult1.Location = New System.Drawing.Point(4, 136)
         Me.Btn_Mult1.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult1.Name = "Btn_Mult1"
         Me.Btn_Mult1.Size = New System.Drawing.Size(120, 25)
@@ -60,7 +67,7 @@ Partial Class Form1
         'Btn_Mult2
         '
         Me.Btn_Mult2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
-        Me.Btn_Mult2.Location = New System.Drawing.Point(1, 112)
+        Me.Btn_Mult2.Location = New System.Drawing.Point(4, 163)
         Me.Btn_Mult2.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult2.Name = "Btn_Mult2"
         Me.Btn_Mult2.Size = New System.Drawing.Size(120, 25)
@@ -84,7 +91,7 @@ Partial Class Form1
         Me.Lbl_Pa.AutoSize = True
         Me.Lbl_Pa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
         Me.Lbl_Pa.ForeColor = System.Drawing.Color.Green
-        Me.Lbl_Pa.Location = New System.Drawing.Point(3, 22)
+        Me.Lbl_Pa.Location = New System.Drawing.Point(3, 19)
         Me.Lbl_Pa.Name = "Lbl_Pa"
         Me.Lbl_Pa.Size = New System.Drawing.Size(56, 16)
         Me.Lbl_Pa.TabIndex = 5
@@ -93,7 +100,7 @@ Partial Class Form1
         'Btn_Mult3
         '
         Me.Btn_Mult3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
-        Me.Btn_Mult3.Location = New System.Drawing.Point(1, 139)
+        Me.Btn_Mult3.Location = New System.Drawing.Point(4, 190)
         Me.Btn_Mult3.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult3.Name = "Btn_Mult3"
         Me.Btn_Mult3.Size = New System.Drawing.Size(120, 25)
@@ -104,7 +111,7 @@ Partial Class Form1
         'Btn_Mult4
         '
         Me.Btn_Mult4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
-        Me.Btn_Mult4.Location = New System.Drawing.Point(1, 166)
+        Me.Btn_Mult4.Location = New System.Drawing.Point(4, 217)
         Me.Btn_Mult4.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult4.Name = "Btn_Mult4"
         Me.Btn_Mult4.Size = New System.Drawing.Size(120, 25)
@@ -115,7 +122,7 @@ Partial Class Form1
         'Btn_Mult5
         '
         Me.Btn_Mult5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
-        Me.Btn_Mult5.Location = New System.Drawing.Point(1, 193)
+        Me.Btn_Mult5.Location = New System.Drawing.Point(4, 244)
         Me.Btn_Mult5.Margin = New System.Windows.Forms.Padding(1)
         Me.Btn_Mult5.Name = "Btn_Mult5"
         Me.Btn_Mult5.Size = New System.Drawing.Size(120, 25)
@@ -126,7 +133,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(101, 38)
+        Me.Button1.Location = New System.Drawing.Point(104, 89)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(20, 20)
         Me.Button1.TabIndex = 9
@@ -136,7 +143,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(1, 38)
+        Me.Button2.Location = New System.Drawing.Point(62, 89)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(20, 20)
         Me.Button2.TabIndex = 10
@@ -144,11 +151,72 @@ Partial Class Form1
         Me.Button2.UseVisualStyleBackColor = True
         Me.Button2.Visible = False
         '
+        'TxtBxPn
+        '
+        Me.TxtBxPn.Location = New System.Drawing.Point(4, 39)
+        Me.TxtBxPn.Name = "TxtBxPn"
+        Me.TxtBxPn.ReadOnly = True
+        Me.TxtBxPn.Size = New System.Drawing.Size(120, 20)
+        Me.TxtBxPn.TabIndex = 11
+        '
+        'TxtBxPa
+        '
+        Me.TxtBxPa.Location = New System.Drawing.Point(4, 62)
+        Me.TxtBxPa.Name = "TxtBxPa"
+        Me.TxtBxPa.ReadOnly = True
+        Me.TxtBxPa.Size = New System.Drawing.Size(120, 20)
+        Me.TxtBxPa.TabIndex = 12
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 100
+        Me.ToolTip1.ReshowDelay = 100
+        '
+        'Cop1
+        '
+        Me.Cop1.AutoSize = True
+        Me.Cop1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
+        Me.Cop1.ForeColor = System.Drawing.Color.Red
+        Me.Cop1.Location = New System.Drawing.Point(61, 59)
+        Me.Cop1.Name = "Cop1"
+        Me.Cop1.Size = New System.Drawing.Size(65, 13)
+        Me.Cop1.TabIndex = 13
+        Me.Cop1.Text = "Nokopēts!"
+        Me.Cop1.Visible = False
+        '
+        'Cop2
+        '
+        Me.Cop2.AutoSize = True
+        Me.Cop2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(186, Byte))
+        Me.Cop2.ForeColor = System.Drawing.Color.Red
+        Me.Cop2.Location = New System.Drawing.Point(60, 83)
+        Me.Cop2.Name = "Cop2"
+        Me.Cop2.Size = New System.Drawing.Size(65, 13)
+        Me.Cop2.TabIndex = 14
+        Me.Cop2.Text = "Nokopēts!"
+        Me.Cop2.Visible = False
+        '
+        'ChckBxCol
+        '
+        Me.ChckBxCol.AutoSize = True
+        Me.ChckBxCol.Location = New System.Drawing.Point(5, 93)
+        Me.ChckBxCol.Name = "ChckBxCol"
+        Me.ChckBxCol.Size = New System.Drawing.Size(33, 17)
+        Me.ChckBxCol.TabIndex = 15
+        Me.ChckBxCol.Text = "C"
+        Me.ChckBxCol.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(122, 219)
+        Me.ClientSize = New System.Drawing.Size(127, 273)
+        Me.Controls.Add(Me.ChckBxCol)
+        Me.Controls.Add(Me.Cop2)
+        Me.Controls.Add(Me.Cop1)
+        Me.Controls.Add(Me.TxtBxPa)
+        Me.Controls.Add(Me.TxtBxPn)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Btn_Mult5)
@@ -180,4 +248,10 @@ Partial Class Form1
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents ColorDialog1 As ColorDialog
+    Friend WithEvents TxtBxPn As TextBox
+    Friend WithEvents TxtBxPa As TextBox
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Cop1 As Label
+    Friend WithEvents Cop2 As Label
+    Friend WithEvents ChckBxCol As CheckBox
 End Class
